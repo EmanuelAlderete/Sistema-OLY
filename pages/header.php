@@ -13,7 +13,7 @@
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
-          <a href="./" class="navbar-brand">OLY</a>
+          <a href="../index.php" class="navbar-brand">OLY</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
           <?php  if (isset($_SESSION['cLogin']) && !empty($_SESSION['cLogin'])) {
