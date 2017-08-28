@@ -25,6 +25,10 @@
     <tbody>
       <?php
         $a = new Anuncios();
+
+        if (count($a->getMeusAnuncios()) > 0) {
+          echo "KKKKKK";
+        }
         $anuncios = $a->getMeusAnuncios();
 
         foreach ($anuncios as $anuncio) :
@@ -34,7 +38,6 @@
                 <?php if (!empty($anuncio['url'])): ?>
                 <img height="100" src="../assets/images/anuncios/<?php echo $anuncio['url']; ?>"></td>
               <?php else: ?>
-                <img src="../assets/images/anuncios/default.jpg" height="100"></td>
               <?php endif; ?>
               <td><?php echo $anuncio['titulo']; ?></td>
               <td>R$ <?php echo number_format($anuncio['valor'], 2); ?></td>
