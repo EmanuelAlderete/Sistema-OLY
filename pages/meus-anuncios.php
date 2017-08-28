@@ -27,26 +27,24 @@
         $a = new Anuncios();
 
         if (count($a->getMeusAnuncios()) > 0) {
-          echo "KKKKKK";
+          $anuncios = $a->getMeusAnuncios();
+
+          foreach ($anuncios as $anuncio) :
+            ?>
+              <tr>
+                <td>
+                  <?php if (!empty($anuncio['url'])): ?>
+                  <img height="100" src="../assets/images/anuncios/<?php echo $anuncio['url']; ?>"></td>
+                <?php else: ?>
+                  <img src="../assets/images/anuncios/default.jpg" height="50"></td>
+                <?php endif; ?>
+                <td><?php echo $anuncio['titulo']; ?></td>
+                <td>R$ <?php echo number_format($anuncio['valor'], 2); ?></td>
+                <td><a class="btn btn-primary" href="editar-anuncio.php?id=<?php echo $anuncio['id']; ?>">Editar</a>
+                <a href="excluir-anuncio.php?id=<?php echo $anuncio['id']; ?>" class="btn btn-danger">Excluir</a></td>
+              </tr>
+          <?php endforeach;
         }
-        $anuncios = $a->getMeusAnuncios();
-
-        foreach ($anuncios as $anuncio) :
-          ?>
-            <tr>
-              <td>
-                <?php if (!empty($anuncio['url'])): ?>
-                <img height="100" src="../assets/images/anuncios/<?php echo $anuncio['url']; ?>"></td>
-              <?php else: ?>
-                <img src="../assets/images/anuncios/default.jpg" height="50"></td>
-              <?php endif; ?>
-              <td><?php echo $anuncio['titulo']; ?></td>
-              <td>R$ <?php echo number_format($anuncio['valor'], 2); ?></td>
-              <td><a class="btn btn-primary" href="editar-anuncio.php?id=<?php echo $anuncio['id']; ?>">Editar</a>
-              <a href="excluir-anuncio.php?id=<?php echo $anuncio['id']; ?>" class="btn btn-danger">Excluir</a></td>
-            </tr>
-        <?php endforeach;
-
        ?>
     </tbody>
   </table>
