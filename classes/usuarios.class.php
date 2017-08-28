@@ -54,5 +54,19 @@
       }
     }
 
+    public function getCountUsuarios() {
+      global $pdo;
+
+      $sql = $pdo->query("SELECT * FROM usuarios");
+      $sql = $sql->rowCount();
+
+      if ($sql <= 0) {
+       echo "ZERO";
+     } else {
+       echo $sql;
+     }
+
   }
+
+}
  ?>

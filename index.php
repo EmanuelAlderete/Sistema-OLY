@@ -35,10 +35,10 @@
           $u->getNome($_SESSION['cLogin']);
           ?>
         <h2>Nós temos <?php $a = new Anuncios(); $a->numeroAnuncios();?> anúncios hoje!!!</h2>
-        <p>E mais de 500 mil usuarios satisfeitos :)</p>
+        <p>E mais de <?php $u = new Usuarios(); $u->getCountUsuarios(); ?> usuários satisfeitos :)</p>
       <?php } else {?>
         <h2>Nós temos <?php $a = new Anuncios(); $a->numeroAnuncios();?> anúncios hoje!!!</h2>
-        <p>E mais de 500 mil usuarios satisfeitos :)</p>
+        <p>E mais de <?php $u = new Usuarios(); $u->getCountUsuarios(); ?> usuários satisfeitos :)</p>
     <?php } ?>
       </div>
 
